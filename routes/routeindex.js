@@ -13,6 +13,14 @@ router.get('/newPost', async (req,res) =>{
   res.render('newPost');
 });
 
+router.post('/newPost', async (req,res) =>{
+
+  let task = new Task(req.body)
+  await  task.save()
+  res.redirect('/')
+ });
+
+
 
 
 module.exports = router;
